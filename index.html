@@ -27,6 +27,32 @@
 
         <div id="overview" class="step overview" data-x="1350" data-y="100" data-z="100" data-scale="3" data-rotate-y="90">
             <h1>火掌柜动态化方案</h1>
+
+            <div class="notes">
+                <p>开场：两年前刚刚开始接手火掌柜的时候，作为的面向商家的APP，有非常多的设置页面，但是每个页面的设置控件又逃不出那么几个类型。就在想是否可以通过一些配置下发给客户端，告诉我们这些页面具体要展示哪些控件，保存要调用什么接口，和一些相关的跳转页面。
+                    那么客户就可以关注基础组件的开发，从业务中抽出来，做一些平台化的事情。
+                </p>
+
+                <p>当时这个想法也跟一些同事提起过。现在看来当时是有点愣头青了。因为我们花了两年时间才能做这次分享，虽然我们现在还是有很多问题要去解决。两年中我们通过一次一次的整个App的架构改造才有了动态化的基础。 </p>
+
+                <ul>
+                    <li>1. 逻辑后移。 </li>
+                    <li>2. 整个app通过原来在一个控制器上通过显示、隐藏子view的方式改成了Navication controller控制的方式。 </li>
+                    <li>3. 整个app建立了每个页面建立的一套路由映射机制（这样才能通过接口告诉客户需要跳转哪个页面）</li>
+                    <li>4. 模块化拆分 </li>
+                    <li>5. 页面组件添加抽象成数据模型</li>
+                    <li>6. 处理页面组件之间的联动</li>
+                </ul>
+
+                <p>按照石胆的话说这都叫做”还债“ </p>
+
+                <p>然后在去年四月份，掌柜首页迎来了一次重大的改版。当时跟大米决定趁着这次首页改造先把首页动态化做了。万幸的是当时把这件事情做掉了。随后的天气、广告、功能大全都是通过这个架构实现的。</p>
+
+                <p>今天聊的动态化更加侧重于内部列表、设置表单页面的动态化。由于跟首页的场景区别比较大，所以我们通过两个方案提供，但是整体的思路还是一样的。</p>
+
+                <p>为什么叫香港记者呢。传说中“香港记者”跑的最快。所以我们希望随着动态化的完善。我们的业务可以跟香港记者跑的一样快. </p>
+
+            </div>
         </div>
         <div id="overview2" class="step overview" data-x="2018" data-y="106" data-z="3018" data-scale="2">
             <div>
@@ -36,7 +62,27 @@
                     <li class="item">形成一套完善统一的交互规范</li>
                     <li class="item">客户端不发版可以完成新的需求</li>
                     <li class="item">cover掉80%的需求</li>
+                    <li class="item">多业态和国际化的基础方案</li>
                 </ul>
+            </div>
+
+            <div class="notes">
+                <p>
+                    我们的动态化方案稳定，并且基础组件库丰富后，产品的同学在设计App的时候就可以通过后台拖拽的方式生成出需要的页面。并且可以在app上可以展示（后面的演示可以看到）
+                </p>
+
+                <p>
+                    我们乐观的认为我们的系统确实能够带来开发效率上面的提升，那么产品就愿意通过我们的平台来创建新的页面。换句话说组件都是通过根据交互规范开发的标准组件库出来的。那么app的交互应该是统一的。 这会带来另一个好处是，以后app整理风格的改变会变得很容易。
+                </p>
+                <p>
+                    理所当然的，因为页面元素和动作都是下发的，没有新的组件就不需要客户端参与开发了。
+                </p>
+                <p>
+                    cover掉80%的需求当然只是我的乐观估计。这个要看我们的组件库能丰富到什么程度。
+                </p>
+                <p>
+                    因为能颗粒度细到每一个组件。所以这个也不是问题。
+                </p>
             </div>
         </div>
 
@@ -45,9 +91,10 @@
             <ul>
                 <li class="item">数据和布局接口分离</li>
                 <li class="item">组件和动作分离</li>
+                <li class="item">双向绑定</li>
                 <li class="item">统一端上的页面路由</li>
                 <li class="item">简单的表达式支持</li>
-                <li class="item">多级缓存</li>
+                <li class="item">多级缓存变量池</li>
                 <li class="item">更新策略</li>
                 <li class="item">一套完善的开发流程</li>
 
@@ -55,34 +102,52 @@
 
             <div class="notes">
                 <p>
-                    数据和布局接口分离:
+                    数据和布局接口分离: 这个也是当时我们比较纠结的一个问题。
                 </p>
-                <p>统一端上的页面路由</p>
-                <p>表达是支持</p>
-                <p>多级缓存</p>
+                <p>
+                    统一端上的页面路由: android、iOS页面的URL统一
+                </p>
+                <p>
+                    表达是支持: 掌柜不少组件有联动效果，比如关闭一个开关这个页面相应的其他几个元素会隐藏。
+                </p>
+                <p>
+                    多级缓存:页面，页面间参数传递，app生命周期的全局，文件。表达式可以获取不同缓存中的变量（演示中有）
+                </p>
+                <p>
+                    更新策略：展开有点复杂，我们整理一片文章出来
+                </p>
+                <p>
+                    完善的开发流程：开发、测试、预发、上线的环境隔离。用户操作权限和日志记录。
+                </p>
             </div>
 
         </div>
 
         <div id="step-2" class="step" data-x="420" data-y="-70" data-z="-250" data-rotate-z="45" data-rotate-y="-45" data-rotate-order="zyx">
+            <h1>
+                <a href="http://blog.yuzhuohui.info">图示</a>
+            </h1>
+
+        </div>
+
+        <div id="step-3" class="step" data-x="700" data-y="350" data-z="-350" data-rotate-z="90" data-rotate-y="-90" data-rotate-order="zyx">
             <p>为什么是这个方案</p>
 
             <ul>
                 <li class="item">团队基因</li>
+                <li class="item">如果前端其实适配机型也是个问题</li>
                 <li class="item">已经有基于数据模型搭建页面的规范</li>
                 <li class="item">已经有了一个比较成熟的路由层</li>
-                <li class="item">如果前端其实适配机型也是个问题</li>
                 <li class="item">首页动态化看起来不错</li>
                 <li class="item">体验上还是有一点点优势</li>
             </ul>
-            
-            <div class="notes"></div>
-        </div>
 
-        <div id="step-3" class="step" data-x="700" data-y="350" data-z="-350" data-rotate-z="90" data-rotate-y="-90" data-rotate-order="zyx">
-            <h1>
-                <a>架构图</a>
-            </h1>
+            <div class="notes">
+                <p>毕竟我们团队都是开发iOS、android的转前端成本比较高</p>
+                <p>毕竟是一个表单操作为主的app，网页要体验做上去和不同android系统适配估计投入的人力不比两端开发少</p>
+                <p>在做这套系统之前，我们已经对现有的不同组件建立了数据模型，日常开发中搭建页面就是在为不同的页面配不同的数据模型。所以在我们看来就差下发json转成模型这一步了</p>
+                <p>页面间跳转我们也做了一个中间的路由层</p>
+            </div>
 
         </div>
 
@@ -107,15 +172,20 @@
             <p>TODO</p>
 
             <ul>
-                <li class="item">根据交互规范完善组件库</li>
+                <li class="item">列表
+                    <code>for</code>语句支持</li>
                 <li class="item">后台用户体系</li>
                 <li class="item">后台开发流程完善</li>
-                <li class="item">列表<code>for</code>语句支持</li>
+                <li class="item">根据交互规范完善组件库</li>
             </ul>
         </div>
 
         <div id="step-7" class="step" data-x="700" data-y="350" data-z="350" data-rotate-z="90" data-rotate-y="-270" data-rotate-order="zyx">
-            <h1>FAQ</h2>
+            <h1>
+                <div>
+                    FAQ
+                </div>
+            </h1>
         </div>
 
         <div id="step-8" class="step" data-x="379" data-y="-70" data-z="270" data-rotate-z="45" data-rotate-y="-315" data-rotate-order="zyx"
