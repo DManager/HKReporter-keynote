@@ -1,0 +1,138 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>火掌柜客户端动态化方案| by @薯片</title>
+    <meta name="description" content="Explore impress.js in 3D" />
+    <meta name="author" content="薯片" />
+    <link href="css/3D-rotations.css" rel="stylesheet" />
+</head>
+
+<body class="impress-not-supported">
+    <div class="fallback-message">
+        <p>Your browser
+            <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this
+            presentation.
+        </p>
+        <p>For the best experience please use the latest
+            <b>Chrome</b>,
+            <b>Safari</b> or
+            <b>Firefox</b> browser.</p>
+    </div>
+
+    <div id="impress" data-transition-duration="1800">
+
+
+        <div id="overview" class="step overview" data-x="1350" data-y="100" data-z="100" data-scale="3" data-rotate-y="90">
+            <h1>火掌柜动态化方案</h1>
+        </div>
+        <div id="overview2" class="step overview" data-x="2018" data-y="106" data-z="3018" data-scale="2">
+            <div>
+                <h1>目标</h1>
+                <ul>
+                    <li class="item">交付给产品经理使用，通过网页后台配置、调整客户端页面</li>
+                    <li class="item">形成一套完善统一的交互规范</li>
+                    <li class="item">客户端不发版可以完成新的需求</li>
+                    <li class="item">cover掉80%的需求</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="step-1" class="step" data-x="0" data-y="0" data-z="0" data-goto-prev="step-8">
+            <p>实现方式</p>
+            <ul>
+                <li class="item">数据和布局接口分离</li>
+                <li class="item">组件和动作分离</li>
+                <li class="item">统一端上的页面路由</li>
+                <li class="item">简单的表达式支持</li>
+                <li class="item">多级缓存</li>
+                <li class="item">更新策略</li>
+                <li class="item">一套完善的开发流程</li>
+
+            </ul>
+
+            <div class="notes">
+                <p>
+                    数据和布局接口分离:
+                </p>
+                <p>统一端上的页面路由</p>
+                <p>表达是支持</p>
+                <p>多级缓存</p>
+            </div>
+
+        </div>
+
+        <div id="step-2" class="step" data-x="420" data-y="-70" data-z="-250" data-rotate-z="45" data-rotate-y="-45" data-rotate-order="zyx">
+            <p>为什么是这个方案</p>
+
+            <ul>
+                <li class="item">团队基因</li>
+                <li class="item">已经有基于数据模型搭建页面的规范</li>
+                <li class="item">已经有了一个比较成熟的路由层</li>
+                <li class="item">如果前端其实适配机型也是个问题</li>
+                <li class="item">首页动态化看起来不错</li>
+                <li class="item">体验上还是有一点点优势</li>
+            </ul>
+            
+            <div class="notes"></div>
+        </div>
+
+        <div id="step-3" class="step" data-x="700" data-y="350" data-z="-350" data-rotate-z="90" data-rotate-y="-90" data-rotate-order="zyx">
+            <h1>
+                <a>架构图</a>
+            </h1>
+
+        </div>
+
+        <div id="step-4" class="step" data-x="422" data-y="780" data-z="-250" data-rotate-z="135" data-rotate-y="-135" data-rotate-order="zyx">
+            <h1>演示</h1>
+
+            <blockquote style="text-align: center">@虾米</blockquote>
+        </div>
+
+        <div id="step-5" class="step" data-x="0" data-y="702" data-z="0" data-rotate-z="180" data-rotate-y="-180" data-rotate-order="zyx">
+            <p>已经向开发者开放</p>
+            <ul>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item"></li>
+            </ul>
+        </div>
+
+        <div id="step-6" class="step" data-x="379" data-y="780" data-z="270" data-rotate-z="135" data-rotate-y="-225" data-rotate-order="zyx">
+            <p>TODO</p>
+
+            <ul>
+                <li class="item">根据交互规范完善组件库</li>
+                <li class="item">后台用户体系</li>
+                <li class="item">后台开发流程完善</li>
+                <li class="item">列表<code>for</code>语句支持</li>
+            </ul>
+        </div>
+
+        <div id="step-7" class="step" data-x="700" data-y="350" data-z="350" data-rotate-z="90" data-rotate-y="-270" data-rotate-order="zyx">
+            <h1>FAQ</h2>
+        </div>
+
+        <div id="step-8" class="step" data-x="379" data-y="-70" data-z="270" data-rotate-z="45" data-rotate-y="-315" data-rotate-order="zyx"
+            data-goto-next="step-1">
+            <h1>THX</h1>
+        </div>
+    </div>
+
+    <div id="impress-toolbar"></div>
+    <div id="impress-help"></div>
+
+    <script type="text/javascript" src="./js/impress.js"></script>
+    <script type="text/javascript" src="./js/impressConsole.js"></script>
+    <script>
+        impress().init();
+        impressConsole().init();
+    </script>
+</body>
+
+</html>
